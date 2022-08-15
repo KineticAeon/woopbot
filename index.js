@@ -25,6 +25,9 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+if (message.content.includes('engineer')) {
+	message.channel.send('<:engeer:1008530218237051041>\nlittle man with a shotgun\nlittle man with a shotgun');
+}
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
