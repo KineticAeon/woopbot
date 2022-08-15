@@ -4,3 +4,6 @@ config.json
 furry-meme
 notes
 .eslintrc.json
+commands/utility/reload.js
+commands/utility/args-info.js
+commands/utility/command-example.js
