@@ -5,26 +5,21 @@ module.exports = {
 	description: 'Kick a user from the server.',
 	guildOnly: true,
     permissions: 'KICK_MEMBERS',
-	execute(message, args) {
-        // checks to make sure arguments are added
-        if (!args.length) {
-            message.channel.send('you just tried to kick air lmao')
-        } else {
-            // checks if the target exists in the server
-            const target = message.mentions.targets.first();
-            if (message.mentions.members.size){
-                // checks if the target is kickable
-                client.guild.member(target.id).exists
-                if(target.kickable) {
-                    target.kick();
-                    message.channel.send(`\`${target}\` has been kicked`)
-                } else {
-                    // if unkickable, sends this message
-                    return message.channel.send(`I'm not cool enough to kick ${target}`);
-                }
+	execute(message) {
+        const member = message.mentions.members.first();
+        // check if a user is mentioned
+        if (message.mentions.members.size > 0) {
+            // check if the target is kickable and kick them if they are
+            if(member.kickable) {
+                member.kick();
+                message.channel.send(`\`${member}\` has been kicked`);
             } else {
-                message.channel.send(`${target} ain't even here man`)
-            }
+                // if unkickable, sends this message
+                return message.channel.send(`I'm not cool enough to kick ${member}`);
+            };
+        } else {
+            // send a message if no user is mentioned
+            message.channel.send('you have to mention someone');
         };
-	},
+    },
 };
