@@ -15,6 +15,19 @@ client.commands = new Discord.Collection();
 // implement cooldowns
 client.cooldowns = new Discord.Collection();
 
+// load events folder
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+
+// gets all events
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args, client));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args, client));
+	}
+}
+
 // load commands folder and subfolders
 const commandFolders = fs.readdirSync('./commands');
 
@@ -34,9 +47,6 @@ client.once('ready', () => {
 
 // engineer shit
 client.on('message', message => {
-if (message.content.includes('engineer')) {
-	message.channel.send('<:engeer:1008530218237051041>\nlittle man with a shotgun\nlittle man with a shotgun');
-}
 
 // command handler
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
