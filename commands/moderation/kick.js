@@ -1,5 +1,3 @@
-// as of yet I have been unable to check if a user exists, so '~kick gshfdnt' will always output error
-// this will be fixed eventually, idk when
 module.exports = {
 	name: 'kick',
 	description: 'Kick a user from the server.',
@@ -12,7 +10,7 @@ module.exports = {
             // check if the target is kickable and kick them if they are
             if(member.kickable) {
                 member.kick();
-                message.channel.send(`\`${member}\` has been kicked`);
+                message.channel.send(`${member} (\`${member}\`) has been kicked`);
             } else {
                 // if unkickable, sends this message
                 return message.channel.send(`I'm not cool enough to kick ${member}`);
