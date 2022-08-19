@@ -19,7 +19,7 @@ module.exports = {
 		// gets promise
 		let ballResponses = getResponses('https://raw.githubusercontent.com/KineticAeon/furry-meme/main/8ballResponses');
 
-		// ]sets ballResponses as the result of getResponses
+		// sets ballResponses as the result of getResponses
 		ballResponses.then(function(result) {
 			ballResponses = result;
 			// splits into an array
