@@ -1,10 +1,10 @@
 // haah: the name is really just funny
+// try and guess what I use this one for
 
 const dotenv = require('dotenv');
 dotenv.config();
 
 const extImage = process.env.EXTIMAGE;
-const channels = process.env.HAAHCHANNELS;
 
 module.exports = {
 	name: 'haah',
@@ -13,8 +13,7 @@ module.exports = {
 		// require fetch
 		const fetch = require('node-fetch');
 
-        channelArray = channels.split(",");
-        if (channelArray.includes(message.channel.id)) {
+        if (message.channel.nsfw) {
 		// fetch function image urls from imageFile
             async function getResponses(imageFile) {
                 try {
