@@ -6,7 +6,7 @@ dotenv.config();
 const dmChannel = process.env.DMCHANNEL;
 
 module.exports = {
-	name: 'message',
+	name: 'dm',
 	execute(message, client) {
         // checks if channel type is a dm
         if (message.channel.type === 'dm') {

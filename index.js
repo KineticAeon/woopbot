@@ -40,15 +40,10 @@ for (const folder of commandFolders) {
 	}
 }
 
-// logs ready on bot startup
-client.once('ready', () => {
-	console.log('Ready!');
-});
-
-// engineer shit
 client.on('message', message => {
 
 // command handler
+if (message.content.startsWith('~')) {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
@@ -105,6 +100,7 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('error');
 	}
+}
 });
 
 client.login(token);
