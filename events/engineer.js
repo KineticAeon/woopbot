@@ -1,8 +1,6 @@
 module.exports = {
 	name: 'message',
-	execute(message, client) {
-        // sets the server to automod
-        const guild = client.guilds.cache.get(process.env.MODSERVER);
+	execute(message) {
 
         // sets content variable
         var content = message.content;
