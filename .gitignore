@@ -6,3 +6,5 @@ notes
 commands/utility/reload.js
 commands/utility/args-info.js
 commands/utility/command-example.js
+.fleet
+.idea
