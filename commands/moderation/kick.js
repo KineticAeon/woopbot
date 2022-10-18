@@ -3,6 +3,7 @@ module.exports = {
 	description: 'Kick a user from the server.',
 	guildOnly: true,
     permissions: 'KICK_MEMBERS',
+    aliases: ['gtfo', 'out'],
 	execute(message) {
         const member = message.mentions.members.first();
         // check if a user is mentioned

@@ -3,6 +3,7 @@ module.exports = {
 	description: 'bans a user',
 	guildOnly: true,
     permissions: 'BAN_MEMBERS',
+    aliases: ['bam', 'bean'],
 	execute(message) {
         const member = message.mentions.members.first();
         // check if a user is mentioned
