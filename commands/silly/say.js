@@ -8,6 +8,7 @@ const prefix = process.env.PREFIX;
 module.exports = {
 	name: 'say',
 	description: 'makes the bot send your message',
+    guildOnly: true,
 	execute(message, args) {
         // makes sure the message actually has arguments
         if (!args.length) {

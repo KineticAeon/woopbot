@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'image',
-	description: 'sends an image',s
-	execute(message) {
+	description: 'sends an image',
+    execute(message) {
 	
 	// import github listing library
 	const listContent = require('list-github-dir-content');
