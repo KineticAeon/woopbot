@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'image',
-	description: 'sends an image',
+	description: 'sends an image',s
 	execute(message) {
 	
 	// import github listing library

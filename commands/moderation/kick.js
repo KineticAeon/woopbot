@@ -15,10 +15,10 @@ module.exports = {
             } else {
                 // if unkickable, sends this message
                 return message.channel.send(`I'm not cool enough to kick ${member}`);
-            };
+            }
         } else {
             // send a message if no user is mentioned
             message.channel.send('you have to mention someone');
-        };
+        }
     },
 };

@@ -1,3 +1,3 @@
 "# woopbot" 
-rebrand time baby
-discor bot that sends images, likes engineer, and does other stuff
+a discord bot that doesn't take itself too seriously
+includes some moderation commands, some joke commands, and 

@@ -4,7 +4,7 @@ module.exports = {
         // botn't
         if (!message.author.bot) {
             // sets content variable
-            var content = message.content;
+            let content = message.content;
 
             // changes all text to lower case
             content = content.replace(/\s+/g, '').toLowerCase();

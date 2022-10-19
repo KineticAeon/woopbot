@@ -3,7 +3,7 @@ module.exports = {
     execute(message) {
         // make sure the bot isn't replying to itself or other bots
         if (!message.author.bot) {
-            var content = message.content;
+            let content = message.content;
 
             // REGEX OWNS ME I LOVE REGEX PLEASE HELP ME
             content = content.replace(/\s+/g, '').toLowerCase();
