@@ -1,14 +1,22 @@
 // 中国政府拥有我 I LOVE VALORANT 请救救我
 // THE CHINESE GOVERNMENT OWNS ME I LOVE VALORANT PLEASE HELP
 module.exports = {
-    name: 'message',
-    execute(message) {
-        // botn't
-        if (!message.author.bot) {
-            let content = message.content;
+    name: 'presenceUpdate',
+    execute(oldPresence, newPresence, client) {
 
-            content = content.replace(/\s+/g, '').toLowerCase();
-            if (content.includes('ilovevalorant')) message.channel.send('中国政府拥有我 I LOVE VALORANT 请救救我');
-        };
+        let channelID = 1032389840777510912
+        // shames the players for playing val
+        function shameValPlayer(user) {
+            client.channels.cache.get(channelID).send(`<@${user}> 中国政府拥有我 I LOVE VALORANT 请救救我`)
+        }
+
+        // checks if a users presence has updated
+        if (Object.keys(newPresence.activities).length != 0) {
+            // sets activityName
+            // REGEX OWNS ME I LOVE REGEX PLEASE HELP
+            let activityName = newPresence.activities[0].name.replace(/\s+/g, '').toLowerCase();
+            let user = newPresence.userID
+            if (activityName.includes('valorant')) shameValPlayer(user);
+        }
     },
 };
