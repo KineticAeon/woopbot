@@ -17,32 +17,22 @@ module.exports = {
 
 	// create async function to get files using repoDir as the directory
 	async function getFiles(repoDir) {
-		const filesArray = await listContent.viaTreesApi({
+        // returns array of files in repoDir
+		return await listContent.viaTreesApi({
 			user: 'KineticAeon',
 			repository: 'furry-meme',
 			directory: repoDir,
 			token: gitToken
 		});
-		// returns array of files in repoDir
-		return filesArray;
-	};
+	}
 
-	// retrieves promise
-	let images = getFiles('images');
-
-
-	images.then(function(result) {
-		// sets image to actual array
-		imageArray = result;
-		// gets a random part of the array and change image to it
-		image = imageArray[Math.random()*imageArray.length>>0];
-		// logs random output
-		// replace spaces with %20
-		image = image.replace(/ /g, '%20');
-		// add storage repo link to image
-		image = repo + image;
-		// finally, send the message
-		message.channel.send(image);
-	});
+        // retrive promis
+        getFiles('images').then(function(result) {
+            // sets image to actual array
+            // get random image from array and do text manipulation
+            image = repo + result[Math.random()*result.length>>0].replace(/ /g, '%20');
+            // finally, send the message
+            message.channel.send(image);
+        });
 	},
 };

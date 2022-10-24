@@ -1,4 +1,3 @@
-// val too maybe
 module.exports = {
     name: 'presenceUpdate',
     execute(oldPresence, newPresence, client) {
@@ -14,7 +13,16 @@ module.exports = {
             // sets activityName
             let activityName = newPresence.activities[0].name.replace(/\s+/g, '').toLowerCase();
             let user = newPresence.userID
-            if (activityName.includes('leagueoflegends')) shameLeaguePlayer(user);
+
+            // this code snippet doesn't work yet
+            // can't figure out how to check again after 30 minutes
+            /*
+            let leagueTime = newPresence.activities[0].createdAt
+            let currentTime = new Date()
+            if (leagueTime + 1800000 >= currentTime) {
+                if (activityName.includes('leagueoflegends')) shameLeaguePlayer(user);
+            }
+            */
         }
     },
 };

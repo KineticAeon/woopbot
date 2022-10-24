@@ -1,5 +1,6 @@
 module.exports = {
     name: 'purge',
+    description: 'censors people',
     guildOnly: true,
     permissions: 'MANAGE_MESSAGES',
     aliases: ['censor', '1984'],

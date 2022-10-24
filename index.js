@@ -43,7 +43,7 @@ for (const folder of commandFolders) {
 client.on('message', message => {
 
 // command handler
-if (message.content.startsWith('~')) {
+if (message.content.startsWith(prefix)) {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
@@ -88,7 +88,6 @@ if (message.content.startsWith('~')) {
 		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 
 		if (now < expirationTime) {
-			const timeLeft = (expirationTime - now) / 1000;
 			return message.channel.send(`chill, you're using \`${command.name}\` way too much`);
 		}
 	}

@@ -6,13 +6,13 @@ module.exports = {
             let content = message.content;
 
             // REGEX OWNS ME I LOVE REGEX PLEASE HELP ME
-            content = content.replace(/\s+/g, '').toLowerCase();
+            content = content.replace(/\s+[ ]/g, '').toLowerCase();
 
             // send hm emoji
             if (content.includes(':hm:')) {
                 message.channel.send('<:hm:1011461406505324555>');
                 // react with hm emoji when hm is said
-            } else if (content.includes('hm')) {
+            } else if (content.includes(' hm')) {
                 message.react('1011461406505324555')
             };
         };
