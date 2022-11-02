@@ -8,18 +8,45 @@ dotenv.config();
 const token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
 
+// initialize bot
+
+const { Client, Partials, GatewayIntentBits, Collection } = require('discord.js');
+const client = new Client({ intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.MessageContent
+],
+    partials: [
+    Partials.Channel,
+    Partials.Message,
+    Partials.User,
+    Partials.GuildMember,
+    Partials.Reaction
+    ],
+    // presence
+    presence: {
+    activities: [{
+        name: "fire",
+        type: 0
+    }],
+        status: 'idle'
+}
+});
+
 // commands
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+client.commands = new Collection();
+console.log(client.commands)
 
 // implement cooldowns
-client.cooldowns = new Discord.Collection();
+client.cooldowns = new Collection();
 
-// load events folder
+// event handler
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-
-// gets all events
 for (const file of eventFiles) {
+
 	const event = require(`./events/${file}`);
 	if (event.once) {
 		client.once(event.name, (...args) => event.execute(...args, client));
@@ -40,7 +67,7 @@ for (const folder of commandFolders) {
 	}
 }
 
-client.on('message', message => {
+client.on('messageCreate', async message => {
 
 // command handler
 if (message.content.startsWith(prefix)) {
@@ -69,7 +96,7 @@ if (message.content.startsWith(prefix)) {
 	// if a user forgets arguments
 	if (command.args && !args.length) {
 		let reply = `that's not how \`${command.name}\` works`;
-	
+
 		return message.channel.send(reply);
 	}
 
@@ -77,13 +104,13 @@ if (message.content.startsWith(prefix)) {
 	const { cooldowns } = client;
 
 	if (!cooldowns.has(command.name)) {
-		cooldowns.set(command.name, new Discord.Collection());
+		cooldowns.set(command.name, new Collection());
 	}
-	
+
 	const now = Date.now();
 	const timestamps = cooldowns.get(command.name);
 	const cooldownAmount = (command.cooldown || 3) * 1000;
-	
+
 	if (timestamps.has(message.author.id)) {
 		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 

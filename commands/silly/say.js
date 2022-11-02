@@ -18,6 +18,6 @@ module.exports = {
             message.delete();
             // remove prefix from sent message
             toSay = args.join(" ");
-            message.channel.send(toSay);};
+            message.channel.send(toSay.toString());};
 	},
 };

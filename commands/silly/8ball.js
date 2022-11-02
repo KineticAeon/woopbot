@@ -26,7 +26,7 @@ module.exports = {
 			ballResponses = ballResponses.split("\n");
 			// gets random answer from array
 			finalResponse = ballResponses[Math.random()*ballResponses.length>>0];
-			message.channel.send(finalResponse);
+			message.channel.send(finalResponse.toString());
 		});
 	},
 };

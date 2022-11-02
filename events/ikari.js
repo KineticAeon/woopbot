@@ -1,5 +1,5 @@
-module.exports = {
-    name: 'message',
+ module.exports = {
+    name: 'messageCreate',
     execute(message) {
         // make sure the bot isn't replying to itself or other bots
         if (!message.author.bot) {

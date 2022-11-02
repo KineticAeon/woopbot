@@ -1,7 +1,8 @@
+// I need help
 module.exports = {
 	name: 'ready',
 	once: true,
-	execute(client) {
+	execute(message, client) {
 		console.log(`the wooper is ready, logged into ${client.user.tag}`);
 	},
 };

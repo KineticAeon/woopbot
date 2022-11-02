@@ -11,11 +11,11 @@ module.exports = {
         }
 
         // checks if a users presence has updated
-        if (Object.keys(newPresence.activities).length != 0) {
+        if (Object.keys(newPresence.activities).length !== 0) {
             // sets activityName
             // REGEX OWNS ME I LOVE REGEX PLEASE HELP
             let activityName = newPresence.activities[0].name.replace(/\s+/g, '').toLowerCase();
-            let user = newPresence.userID
+            let user = newPresence.userId
             if (activityName.includes('valorant')) shameValPlayer(user);
         }
     },

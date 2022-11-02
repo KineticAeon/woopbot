@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'message',
+	name: 'messageCreate',
 	execute(message) {
         // botn't
         if (!message.author.bot) {

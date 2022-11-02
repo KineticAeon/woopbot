@@ -32,7 +32,7 @@ module.exports = {
             // get random image from array and do text manipulation
             image = repo + result[Math.random()*result.length>>0].replace(/ /g, '%20');
             // finally, send the message
-            message.channel.send(image);
+            message.channel.send(image.toString());
         });
 	},
 };
