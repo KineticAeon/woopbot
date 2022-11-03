@@ -3,7 +3,7 @@ module.exports = {
 	description: 'bans a user',
 	guildOnly: true,
     permissions: 'BAN_MEMBERS',
-    aliases: ['bam', 'bean'],
+    aliases: ['bam', 'bean', 'barn', 'execute', 'murder'],
 	execute(message) {
         const member = message.mentions.members.first();
 
@@ -13,7 +13,7 @@ module.exports = {
             // check if the target is bannable and ban them if they are
             if(member.bannable) {
                 member.ban();
-                message.channel.send(`${member} (\`${member}\`) has been banned`);
+                message.channel.send(`${member} (\`${member}\`) no longer exists`);
             } else {
 
                 // if unbannable, sends this message
