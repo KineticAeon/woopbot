@@ -29,7 +29,7 @@ const client = new Client({ intents: [
     // presence
     presence: {
     activities: [{
-        name: "fire",
+        name: "with fire",
         type: 0
     }],
         status: 'idle'
