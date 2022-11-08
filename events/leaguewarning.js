@@ -2,7 +2,7 @@ module.exports = {
     name: 'presenceUpdate',
     execute(oldPresence, newPresence, client) {
 
-        let channelID = '827647182747598903'
+        let channelID = '984322369273344050'
         // shames the players for playing league
         function shameLeaguePlayer(user) {
             client.channels.cache.get(channelID).send(`<@${user}> should stop playing league and touch grass`)
